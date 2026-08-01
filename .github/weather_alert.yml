@@ -30,7 +30,7 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          WEATHER_API_KEY: ${{ secrets.WA_API_KEY }}
         run: python main.py
 
       - name: Commit and Push Updated last_code.txt
