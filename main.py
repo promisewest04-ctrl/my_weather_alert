@@ -3,7 +3,7 @@ import time
 import requests
 import os
 
-BOT = os.environ.get("BOT")
+BOT_TOKEN = os.environ.get("BOT")
 CHAT_ID = os.environ.get("CHAT_ID")
 
 WEATHER_API_KEY = os.environ.get("WA_API_KEY")
