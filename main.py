@@ -3,10 +3,10 @@ import time
 import requests
 import os
 
-BOT = "8812204790:AAED85sbJEnlfFA3-K7ncGHNyEIgHQ1UFys"
-CHAT_ID = "6289809123"
+BOT = os.environ.get("BOT")
+CHAT_ID = os.environ.get("CHAT_ID")
 
-WA_API_KEY = "2b2280bd36744f129de181425263107"
+WA_API_KEY = os.environ.get("WA_API_KEY")
 api_url = "http://api.weatherapi.com/v1/current.json?"
 
 params = {
