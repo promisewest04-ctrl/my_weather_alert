@@ -44,6 +44,12 @@ def telegram_alert(message_alert):
 def check_weather():
     try:
         response = requests.get(api_url, params=params)
+        data = response.json()
+
+        #print raw response if 'current' is missing to see the exact error
+        if "current" not in data:
+            print("API Error Response:", data)
+            return
 
         """Getting the rain code for the current time and knowing it forecast"""
         code = response.json()['current']['condition']
@@ -63,9 +69,7 @@ def check_weather():
     except Exception as e:
         print(f"Error fetching weather data: {e}")
 
-
-if __name__ == "__main__":
-    check_weather()
+check_weather()
 
 
 
