@@ -65,13 +65,7 @@ def check_weather():
 
 
 if __name__ == "__main__":
-    print("Starting continuous weather monitoring")
-
-    CHECK_INTERVAL = 300
-
-    while True:
-        check_weather()
-        time.sleep(CHECK_INTERVAL)
+    check_weather()
 
 
 
