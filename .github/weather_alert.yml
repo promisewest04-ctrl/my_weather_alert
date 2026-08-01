@@ -1,0 +1,40 @@
+name: Weather Alert Monitor
+
+on:
+  schedule:
+    # Runs every 15 minutes automatically
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # Allows you to manually trigger it anytime from the GitHub website
+
+permissions:
+  contents: write # Allows GitHub Actions to commit changes to last_code.txt
+
+jobs:
+  run-weather-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests
+
+      - name: Execute Weather Script
+        env:
+          BOT_TOKEN: ${{ secrets.BOT }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: python main.py
+
+      - name: Commit and Push Updated last_code.txt
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update last_code.txt"
+          file_pattern: "last_code.txt"
