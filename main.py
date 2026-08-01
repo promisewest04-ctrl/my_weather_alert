@@ -6,11 +6,11 @@ import os
 BOT = os.environ.get("BOT")
 CHAT_ID = os.environ.get("CHAT_ID")
 
-WA_API_KEY = os.environ.get("WA_API_KEY")
+WEATHER_API_KEY = os.environ.get("WA_API_KEY")
 api_url = "http://api.weatherapi.com/v1/current.json?"
 
 params = {
-    "key": WA_API_KEY,
+    "key": WEATHER_API_KEY,
     "q": "4.8100, 6.9600"
 }
 
